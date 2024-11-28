@@ -5,7 +5,8 @@ export default function Player({ name, symbol }) {
   const [isEditing, setIsEditing] = useState(false);
 
   function handleEditClick() {
-    setIsEditing(!isEditing); // Toggle salva - modifica
+    // setIsEditing(!isEditing); // Toggle salva - modifica
+    setIsEditing((editing) => !editing); //Quando si usano valori vecchi (old) meglio usare una arrow function, React la userà senza problemi, al contrario della prima.
   }
 
   let playerName = <span className="player-name">{name}</span>;
