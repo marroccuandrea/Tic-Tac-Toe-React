@@ -18,7 +18,7 @@ export default function Gameboard() {
   }
   return (
     <ol id="game-board">
-      {initialGameboard.map((row, rowIndex) => (
+      {gameBoard.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
             {row.map((playerSymbol, colIndex) => (
