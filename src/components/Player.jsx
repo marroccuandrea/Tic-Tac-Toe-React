@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-export default function Player({ initialName, symbol, isActive }) {
+export default function Player({
+  initialName,
+  symbol,
+  isActive,
+  onChangeName,
+}) {
   // Questo state mi servirà per modificare effettivamente il value dell'input
   const [playerName, setPlayerName] = useState(initialName);
   // Con questa espressione posso capire quando il nome del giocatore viene modificato, inizialmente sarà false, al click del pulsante diventerà true e il nome del pulsante cambierà, a seconda dello state.
@@ -9,6 +14,9 @@ export default function Player({ initialName, symbol, isActive }) {
   function handleEditClick() {
     // setIsEditing(!isEditing); // Toggle salva - modifica
     setIsEditing((editing) => !editing); //Quando si usano valori vecchi (old state) meglio usare una arrow function, React la aggiornerà lo state senza problemi, al contrario della prima.
+    if (isEditing) {
+      onChangeName(symbol, playerName);
+    }
   }
 
   function handleChange(event) {
