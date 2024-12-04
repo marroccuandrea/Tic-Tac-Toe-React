@@ -1,7 +1,11 @@
-export default function GameOver() {
+export default function GameOver({ winner }) {
   return (
     <div id="game-over">
       <h2>Game Over !</h2>
+      <p>{winner} Ha vinto!</p>
+      <p>
+        <button>Rigioca !</button>
+      </p>
     </div>
   );
 }
